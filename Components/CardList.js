@@ -20,7 +20,7 @@ export class CardList extends Component {
 
     nextCard = () => {
         if (this.state.index == this.props.currentDeck.cards.length - 1) {
-            this.setState({ index: 0 })
+            this.setState({ index: 0})
         } else this.setState({ index: this.state.index + 1 })
     }
 
@@ -32,7 +32,7 @@ export class CardList extends Component {
 
     render() {
         
-        const { currentDeck, decks } = this.props
+        const { currentDeck} = this.props
         if (currentDeck.cards.length == 0) {
             return (
                 <View style={styles.flashcard}>

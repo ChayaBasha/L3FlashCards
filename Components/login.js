@@ -17,7 +17,7 @@ export default class Login extends Component {
     }
 
     render() {
-        const { userName, password, currentUser } = this.state
+        const { userName, password } = this.state
         const { doLogin } = this.props
 
         return (

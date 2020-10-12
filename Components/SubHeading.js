@@ -3,11 +3,11 @@ import { StyleSheet, View, Text } from 'react-native';
 
 const DecksSubHeading = (props) => {
 
-    const { decks } = props
+    const { currentUser } = props
 
     return (
         <View>
-            <Text style={styles.subHeadingText}>Decks</Text>
+            {currentUser?(<Text style={styles.subHeadingText}>{currentUser.userName}'s Decks </Text>) :<Text style= {styles.subHeadingText}>Decks</Text>}
         </View>
     )
 };

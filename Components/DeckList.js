@@ -1,26 +1,52 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, ScrollView } from 'react-native';
+import { StyleSheet, View, ScrollView, Text } from 'react-native';
 import { Table, Row } from 'react-native-table-component';
+
+import { DeckNav } from './NavBar';
+import DeckForm from './Forms';
 
 export default class DeckList extends Component {
     state = {
-        tableHead: ['', 'Name', 'Description', '# of Cards']
+        tableHead: ['', 'Name', 'Description', '# of Cards'],
+        showDeckForm: false
+    }
+
+    goToAddDeck = ()=>{
+        console.log('onpress working')
+        this.setState({showDeckForm:true})
+    }
+
+    async doAddDeck(deck) {
+        const {currentUser} = this.props;
+        console.log('deck add working')
+        await fetch(`http://localhost:8080/decks/user/${currentUser.id}`, {
+           headers: {'Content-Type': 'application/json'}, 
+        method: 'POST',
+        body: JSON.stringify(deck)
+        })
+        .then(response => {
+            console.log(response.status);
+            this.props.loadDecks();
+            return response.json();
+        })
     }
 
     render() {
         const state = this.state;
-        const { decks, setCurrentDeck } = this.props
+        const { decks, setCurrentDeck, currentUser } = this.props
+        const { showDeckForm } = this.state;
 
         return (
-            <ScrollView style={styles.container}>
+            <ScrollView style={{marginBottom:100}}>
+            <View style={styles.container}>
 
-                <View>
+ 
 
                     <Table>
                         <Row data={state.tableHead} style={styles.row} textStyle={styles.text} />
                         {
-                            decks.filter((deck)=>deck.visibility).map((deck, index) => (
-                                
+                            decks.filter(currentUser ? ((deck) => (deck.owner == currentUser.id)) : ((deck) => deck.visibility)).map((deck, index) => (
+
                                 <Row
                                     onPress={() => setCurrentDeck(deck)}
                                     key={index}
@@ -29,12 +55,21 @@ export default class DeckList extends Component {
                                     style={styles.row}
                                     textStyle={styles.text}
                                 />
-                            )  )
+                            ))
                         }
                     </Table>
+                    <View>
+                        {currentUser ? (<DeckNav currentUser={currentUser} goToAddDeck={()=>this.goToAddDeck()}/>) : (<Text> </Text>)}
+                    </View>
+                    <View>
+                        {showDeckForm ? (<DeckForm doAddDeck = {deck => this.doAddDeck(deck)} currentUser={currentUser}/>) : (<Text></Text>)}
+                    </View>
 
-                </View>
 
+
+
+
+            </View>
             </ScrollView>
         )
     }

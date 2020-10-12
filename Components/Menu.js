@@ -4,12 +4,15 @@ import DeckList from './DeckList';
 
 const LoggedInMenu = (props) => {
 
-    const { currentUser } = props
+    const { doLogOut } = props
 
     return (
-        <View>
-            <Text style={styles.menu}>Hello {currentUser.userName}</Text>
-        </View>
+        
+            <TouchableOpacity>
+                <Text style={styles.menu} onPress={()=> doLogOut()}>LogOut</Text>
+            </TouchableOpacity>
+
+        
     )
 };
 
@@ -24,7 +27,7 @@ const LoggedOutMenu = (props) => {
 };
 
 const FlashCardMenu = (props) => {
-    const { currentDeck, showDeckList } = props
+    const {showDeckList } = props
 
     return (
         <TouchableOpacity>
@@ -37,6 +40,7 @@ const styles = StyleSheet.create({
     menu: {
         color: 'rgb(40,200,40)'
     }
+
 })
 
 export { LoggedInMenu, LoggedOutMenu, FlashCardMenu };

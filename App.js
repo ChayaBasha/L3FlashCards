@@ -17,6 +17,10 @@ class App extends Component {
   }
 
   async componentDidMount() {
+    await this.loadDecks();
+  }
+
+  loadDecks = async () => {
     await fetch("http://localhost:8080/decks", {
       method: 'GET'
     })
@@ -34,6 +38,7 @@ class App extends Component {
   }
 
   setCurrentUser = (user) => {
+    console.log("Setting the user");
     this.setState({ currentUser: user, showLogin: false })
   }
 
@@ -42,23 +47,26 @@ class App extends Component {
   }
 
   goToLogin = () => {
-    console.log("logged in working")
     this.setState({ currentUser: null, showLogin: true })
   }
 
-  async doLogin(user) {
+  doLogin = async (user) => {
     await fetch("http://localhost:8080/login", {
-      headers: {'Content-Type': 'application/json'},
+      headers: { 'Content-Type': 'application/json' },
       method: 'POST',
       body: JSON.stringify(user),
     })
-    .then(response => {
-      console.log(response.status);
-      return response.json();
-    })
-    .then(json => {
-      this.setCurrentUser(json)
-    })
+      .then(response => {
+        console.log(response.status);
+        return response.json();
+      })
+      .then(json => {
+        this.setCurrentUser(json)
+      })
+  }
+
+  doLogOut = () => {
+    this.setState({ currentUser: null, showLogin: false, showDeckList: false })
   }
 
   render() {
@@ -72,15 +80,19 @@ class App extends Component {
           </View>
           <View style={styles.base}>
             <View style={styles.menu}>
-              {currentUser ? (<LoggedInMenu currentUser={currentUser} />) : <LoggedOutMenu goToLogin={this.goToLogin} />}
+              {currentUser ? (<LoggedInMenu currentUser={currentUser} doLogOut={this.doLogOut} />) : <LoggedOutMenu goToLogin={this.goToLogin} />}
               {currentDeck ? (<FlashCardMenu showDeckList={this.showDeckList} />) : <></>}
             </View>
             <View style={styles.subHeader}>
-              {showLogin ? (<LoginSubHeading />) : currentDeck ? (<CardsSubHeading currentDeck={currentDeck} />) : <DecksSubHeading decks={decks} />}
+              {showLogin ? (<LoginSubHeading />) : currentDeck ? (<CardsSubHeading currentDeck={currentDeck} />) : <DecksSubHeading currentUser={currentUser} />}
             </View>
 
             <View>
-              {showLogin ? (<Login doLogin={user => this.doLogin(user)}/>) : currentDeck ? (<CardList currentDeck={currentDeck} />) : <DeckList decks={decks} setCurrentDeck={this.setCurrentDeck} />}
+              {showLogin ? 
+                (<Login doLogin={this.doLogin} />) : 
+                currentDeck ? 
+                  (<CardList currentDeck={currentDeck} currentUser={currentUser} />) : 
+                  <DeckList loadDecks= {this.loadDecks} decks={decks} setCurrentDeck={this.setCurrentDeck} currentUser={currentUser} />}
             </View>
           </View>
 
