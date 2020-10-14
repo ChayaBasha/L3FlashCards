@@ -18,7 +18,7 @@ export default class DeckList extends Component {
 
     async doAddDeck(deck) {
         const {currentUser} = this.props;
-        console.log('deck add working')
+
         await fetch(`http://localhost:8080/decks/user/${currentUser.id}`, {
            headers: {'Content-Type': 'application/json'}, 
         method: 'POST',
@@ -28,7 +28,7 @@ export default class DeckList extends Component {
             console.log(response.status);
             this.props.loadDecks();
             return response.json();
-        })
+        }). then(this.setState({showDeckForm: false}))
     }
 
     render() {

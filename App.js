@@ -66,11 +66,11 @@ class App extends Component {
   }
 
   doLogOut = () => {
-    this.setState({ currentUser: null, showLogin: false, showDeckList: false })
+    this.setState({ currentUser: null, showLogin: false, showDeckList: false, showDeckForm: false })
   }
 
   render() {
-    const { decks, currentDeck, currentUser, showLogin } = this.state
+    const { decks, currentDeck, currentUser, showLogin, showDeckForm } = this.state
 
     return (
       <>
@@ -92,7 +92,7 @@ class App extends Component {
                 (<Login doLogin={this.doLogin} />) : 
                 currentDeck ? 
                   (<CardList currentDeck={currentDeck} currentUser={currentUser} />) : 
-                  <DeckList loadDecks= {this.loadDecks} decks={decks} setCurrentDeck={this.setCurrentDeck} currentUser={currentUser} />}
+                  <DeckList loadDecks= {this.loadDecks} decks={decks} setCurrentDeck={this.setCurrentDeck} currentUser={currentUser} showDeckForm={showDeckForm} />}
             </View>
           </View>
 

@@ -22,10 +22,4 @@ L3FlashCards is an application that allows a user to view and create flashcard d
     - table component
     - fontawesome
 
-## Changes since week 5
-1. Move to a component folder 
-2. Added in a login screen that works to log you in
-3. added a subheading for login screen
-4. only user decks show when logged in
-5. log out works
-6. Add Deck when logged in works (including it showing as private and public as indicated)
+## Changes since week 7
