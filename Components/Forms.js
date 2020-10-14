@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { StyleSheet, View, Text, TextInput, ScrollView, Button } from 'react-native';
+import { StyleSheet, View, TextInput, ScrollView, Button } from 'react-native';
+import { Picker } from '@react-native-community/picker';
+
 
 export default class DeckForm extends Component {
 
@@ -7,7 +9,7 @@ state ={
     name: '',
     description:'',
     createdBy: '',
-    visibility: '',
+    visibility: false,
 
 }
 
@@ -23,9 +25,6 @@ setCreatedBy(createdBy) {
     this.setState({createdBy})
 }
 
-setVisibility(visibility) {
-    this.setState({visibility})
-}
 
 render(){
     const {name, description, createdBy, visibility}= this.state
@@ -58,10 +57,18 @@ render(){
                 </View>
 
                 <View style={styles.container}>
-                    <TextInput
-                        style={styles.textInput}
-                        onChangeText={visibility=> this.setVisibility(visibility)}
-                        placeholder='enter true=public and false=private' />
+                    <Picker
+                    selectedValue={this.state.visibility}
+                    style={styles.textInput}
+                    onValueChange={(itemValue) => {
+                        
+                        this.setState({visibility: itemValue})
+                    }}
+                    mode={'dropdown'}>
+                        <Picker.Item label='Private' value='false'/>
+                        <Picker.Item label='Public' value='true'/>
+                        
+                    </Picker>
                 </View>
 
                 <View style={[styles.buttonStlye, styles.contianer]}>
@@ -72,6 +79,7 @@ render(){
         )
     }
 }
+
 
 const styles = StyleSheet.create({
 

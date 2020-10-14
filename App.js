@@ -13,7 +13,9 @@ class App extends Component {
     decks: [],
     currentDeck: null,
     currentUser: null,
-    showLogin: false
+    showLogin: false,
+    showDeckForm: false,
+    showEditView: false
   }
 
   async componentDidMount() {
@@ -37,6 +39,11 @@ class App extends Component {
     this.setState({ currentDeck: deck })
   }
 
+  setEditView = (boolean) => {
+    console.log('edit was called')
+    this.setState({showEditView: boolean})
+  }
+
   setCurrentUser = (user) => {
     console.log("Setting the user");
     this.setState({ currentUser: user, showLogin: false })
@@ -49,6 +56,10 @@ class App extends Component {
   goToLogin = () => {
     this.setState({ currentUser: null, showLogin: true })
   }
+
+  setShowDeckForm = (boolean)=>{
+    this.setState({showDeckForm: boolean})
+}
 
   doLogin = async (user) => {
     await fetch("http://localhost:8080/login", {
@@ -70,7 +81,7 @@ class App extends Component {
   }
 
   render() {
-    const { decks, currentDeck, currentUser, showLogin, showDeckForm } = this.state
+    const { decks, currentDeck, currentUser, showLogin, showDeckForm, showEditView} = this.state
 
     return (
       <>
@@ -91,8 +102,8 @@ class App extends Component {
               {showLogin ? 
                 (<Login doLogin={this.doLogin} />) : 
                 currentDeck ? 
-                  (<CardList currentDeck={currentDeck} currentUser={currentUser} />) : 
-                  <DeckList loadDecks= {this.loadDecks} decks={decks} setCurrentDeck={this.setCurrentDeck} currentUser={currentUser} showDeckForm={showDeckForm} />}
+                  (<CardList currentDeck={currentDeck} currentUser={currentUser} setEditView={this.setEditView} showEditView={showEditView} />) : 
+                  <DeckList loadDecks= {this.loadDecks} decks={decks} setCurrentDeck={this.setCurrentDeck} currentUser={currentUser} setShowDeckForm={this.setShowDeckForm} showDeckForm={showDeckForm} setEditView={this.setEditView} showEditView={showEditView}/>}
             </View>
           </View>
 

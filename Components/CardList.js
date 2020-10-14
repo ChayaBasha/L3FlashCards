@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text, ScrollView, TouchableOpacity } from 'react-native';
+import EditDeckView from './EditView';
 import { FlashCardNav } from './NavBar';
 
 export class CardList extends Component {
@@ -9,7 +10,7 @@ export class CardList extends Component {
         cardSide: "frontCard"
     }
 
-    
+
 
     flipCard = () => {
         if (this.state.cardSide == "frontCard") {
@@ -20,7 +21,7 @@ export class CardList extends Component {
 
     nextCard = () => {
         if (this.state.index == this.props.currentDeck.cards.length - 1) {
-            this.setState({ index: 0})
+            this.setState({ index: 0 })
         } else this.setState({ index: this.state.index + 1 })
     }
 
@@ -31,9 +32,18 @@ export class CardList extends Component {
     }
 
     render() {
-        
-        const { currentDeck} = this.props
-        if (currentDeck.cards.length == 0) {
+
+        const { currentDeck, showEditView } = this.props
+        console.log(showEditView);
+
+        if(showEditView){
+            return(
+                <View>
+                    <EditDeckView></EditDeckView>
+                </View>
+            )
+            
+        } if (currentDeck.cards.length == 0) {
             return (
                 <View style={styles.flashcard}>
                     <Text style={styles.flashCardText}>"there are no cards for this deck"</Text>
@@ -55,7 +65,7 @@ export class CardList extends Component {
 const styles = StyleSheet.create({
     flashcard: {
         borderColor: 'rgb(40,200,40)',
-        borderWidth:2,
+        borderWidth: 2,
         alignSelf: 'center',
         width: '80%',
         height: 200,

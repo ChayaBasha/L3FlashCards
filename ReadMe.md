@@ -23,3 +23,5 @@ L3FlashCards is an application that allows a user to view and create flashcard d
     - fontawesome
 
 ## Changes since week 7
+1. Fixed the Deck Form from showing forever after it appeared 
+2. changed visibility to be a picker

@@ -1,15 +1,18 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faPlus, faForward, faBackward } from '@fortawesome/free-solid-svg-icons';
 
 const DeckNav = (props) => {
-    const { goToAddDeck } = props
+    const { showDeckForm, setEditView} = props
 
     return (
-        <View>
+        <View style={styles.navBar}>
             <View>
-                <FontAwesomeIcon style={styles.add} icon={faPlus} onPress={()=> goToAddDeck()}/>
+                <Text style={styles.edit} onPress={()=> setEditView()}>Edit</Text>
+            </View>
+            <View>
+                <FontAwesomeIcon style={styles.add} icon={faPlus} onPress={()=> showDeckForm()}/>
             </View>
         </View>
     )
@@ -40,10 +43,14 @@ const styles = StyleSheet.create({
 
     add:{
         color: 'rgb(40, 200, 40)',
-        alignSelf:'flex-end',
+        padding: 20,
         marginRight: 20,
-        marginTop: 20
 
+    },
+    edit: {
+        color: 'rgb(40, 200, 40)',
+        marginLeft: 20,
+        fontSize: 30,
     },
 
     back: {
