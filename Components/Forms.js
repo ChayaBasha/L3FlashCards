@@ -5,74 +5,58 @@ import { Picker } from '@react-native-community/picker';
 
 export default class DeckForm extends Component {
 
-state ={
-    name: '',
-    description:'',
-    createdBy: '',
-    visibility: false,
 
-}
+    render() {
+        const { doAddDeck,
+            currentUser,
+            setName, name,
+            setDescription, description,
+            setCreatedBy, createdBy,
+            setVisibility, visibility } = this.props
+        const owner = currentUser && currentUser.id
 
-setName(name) {
-    this.setState({name})
-}
+        return (
 
-setDescription(description) {
-    this.setState({description})
-}
-
-setCreatedBy(createdBy) {
-    this.setState({createdBy})
-}
-
-
-render(){
-    const {name, description, createdBy, visibility}= this.state
-    const {doAddDeck, currentUser} = this.props
-    const owner = currentUser && currentUser.id
-
-    return(
-
-   <ScrollView style={styles.container}>
+            <ScrollView style={styles.container}>
 
                 <View style={styles.container}>
                     <TextInput
                         style={styles.textInput}
-                        onChangeText={name => this.setName(name)}
+                        onChangeText={name => setName(name)}
                         placeholder='enter Deck Name' />
                 </View>
 
                 <View style={styles.container}>
                     <TextInput
                         style={styles.textInput}
-                        onChangeText={description => this.setDescription(description)}
+                        onChangeText={description => setDescription(description)}
                         placeholder='enter Deck description' />
                 </View>
 
                 <View style={styles.container}>
                     <TextInput
                         style={styles.textInput}
-                        onChangeText={createdBy => this.setCreatedBy(createdBy)}
+                        onChangeText={createdBy => setCreatedBy(createdBy)}
                         placeholder='enter creator name' />
                 </View>
 
                 <View style={styles.container}>
                     <Picker
-                    selectedValue={this.state.visibility}
-                    style={styles.textInput}
-                    onValueChange={(itemValue) => {
-                        
-                        this.setState({visibility: itemValue})
-                    }}
-                    mode={'dropdown'}>
-                        <Picker.Item label='Private' value='false'/>
-                        <Picker.Item label='Public' value='true'/>
-                        
+                        selectedValue={visibility}
+                        style={styles.textInput}
+                        onValueChange={(itemValue) => {
+
+                            setVisibility(itemValue)
+                        }}
+                        mode={'dropdown'}>
+                        <Picker.Item label='Private' value='false' />
+                        <Picker.Item label='Public' value='true' />
+
                     </Picker>
                 </View>
 
                 <View style={[styles.buttonStlye, styles.contianer]}>
-                    <Button color='rgb(40, 200, 40)' title='Add Deck' onPress ={()=> doAddDeck({name, description, createdBy, visibility, owner})} ></Button>
+                    <Button color='rgb(40, 200, 40)' title='Add Deck' onPress={() => doAddDeck({ name, description, createdBy, visibility, owner })} ></Button>
                 </View>
 
             </ScrollView>
@@ -80,6 +64,34 @@ render(){
     }
 }
 
+export class CardForm extends Component {
+
+    render() {
+        const { currentDeck, currentUser } = this.props
+
+        return (
+            <View style={styles.flashcard}>
+                <View>
+                    <TextInput
+                        style={styles.textInput}
+                        onChangeText={title => setTitle(title)}
+                        placeholder='enter Front Label' />
+                </View>
+
+                <View style={styles.flashcard}>
+                    <TextInput
+                        style={styles.textInput}
+                        onChangeText={title => setSubTitle(title)}
+                        placeholder='enter front sub label' />
+                </View>
+
+                
+            </View>
+
+
+        )
+    }
+}
 
 const styles = StyleSheet.create({
 

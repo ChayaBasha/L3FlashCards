@@ -15,7 +15,11 @@ class App extends Component {
     currentUser: null,
     showLogin: false,
     showDeckForm: false,
-    showEditView: false
+    showEditView: false,
+    name: '',
+    description: '',
+    createdBy: '',
+    visibility: false,
   }
 
   async componentDidMount() {
@@ -40,26 +44,24 @@ class App extends Component {
   }
 
   setEditView = (boolean) => {
-    console.log('edit was called')
-    this.setState({showEditView: boolean})
+    this.setState({ showEditView: boolean })
   }
 
   setCurrentUser = (user) => {
-    console.log("Setting the user");
     this.setState({ currentUser: user, showLogin: false })
   }
 
   showDeckList = () => {
-    this.setState({ currentDeck: null })
+    this.setState({ currentDeck: null, showEditView: false, showDeckForm:false })
   }
 
   goToLogin = () => {
     this.setState({ currentUser: null, showLogin: true })
   }
 
-  setShowDeckForm = (boolean)=>{
-    this.setState({showDeckForm: boolean})
-}
+  setShowDeckForm = (boolean) => {
+    this.setState({ showDeckForm: boolean })
+  }
 
   doLogin = async (user) => {
     await fetch("http://localhost:8080/login", {
@@ -76,12 +78,47 @@ class App extends Component {
       })
   }
 
+  async doUpdateDeck(deck) {
+    const{currentUser, currentDeck} = this.state;
+
+    await fetch(`http://localhost:8080/decks/${currentDeck.id}/user/${currentUser.id}`, {
+        headers: {'Content-Type': 'application/json'},
+        method: 'PUT',
+        body: JSON.stringify(deck)
+    }).then(response=> {
+        console.log(response.status);
+        this.loadDecks();
+        return response.json();
+    })
+    this.setEditView(false)
+}
+
   doLogOut = () => {
-    this.setState({ currentUser: null, showLogin: false, showDeckList: false, showDeckForm: false })
+    this.setState({ currentDeck:null, currentUser: null, showLogin: false, showDeckList: false, showDeckForm: false, showEditView: false })
   }
 
+  setName = (name) => {
+    this.setState({ name })
+  }
+
+  setDescription= (description) => {
+    this.setState({ description })
+  }
+
+  setCreatedBy = (createdBy) => {
+    this.setState({ createdBy })
+  }
+
+  setVisibility =(boolean) => {
+    this.setState({visibility:boolean})
+  }
+
+
   render() {
-    const { decks, currentDeck, currentUser, showLogin, showDeckForm, showEditView} = this.state
+    const { decks, currentDeck, 
+      currentUser, showLogin, 
+      showDeckForm, showEditView, 
+      name, description, createdBy, visibility } = this.state
 
     return (
       <>
@@ -89,7 +126,7 @@ class App extends Component {
           <View style={styles.header}>
             <Text style={styles.headerText}>L3FlashCards</Text>
           </View>
-          <View style={styles.base}>
+          <View style={showEditView? styles.editBase : styles.base}>
             <View style={styles.menu}>
               {currentUser ? (<LoggedInMenu currentUser={currentUser} doLogOut={this.doLogOut} />) : <LoggedOutMenu goToLogin={this.goToLogin} />}
               {currentDeck ? (<FlashCardMenu showDeckList={this.showDeckList} />) : <></>}
@@ -99,11 +136,33 @@ class App extends Component {
             </View>
 
             <View>
-              {showLogin ? 
-                (<Login doLogin={this.doLogin} />) : 
-                currentDeck ? 
-                  (<CardList currentDeck={currentDeck} currentUser={currentUser} setEditView={this.setEditView} showEditView={showEditView} />) : 
-                  <DeckList loadDecks= {this.loadDecks} decks={decks} setCurrentDeck={this.setCurrentDeck} currentUser={currentUser} setShowDeckForm={this.setShowDeckForm} showDeckForm={showDeckForm} setEditView={this.setEditView} showEditView={showEditView}/>}
+              {showLogin ?
+                (<Login doLogin={this.doLogin} />) :
+                currentDeck ?
+                  (<CardList
+                    currentDeck={currentDeck}
+                    currentUser={currentUser}
+                    setEditView={this.setEditView} showEditView={showEditView}
+                    setName={this.setName} name={name}
+                    setDescription={this.setDescription} description={description}
+                    setCreatedBy={this.setCreatedBy} createdBy={createdBy}
+                    setVisibility={this.setVisibility} visibility={visibility}
+                    doUpdateDeck={deck => this.doUpdateDeck(deck)}
+                  />) :
+                  <DeckList
+                    loadDecks={this.loadDecks} decks={decks}
+                    setCurrentDeck={this.setCurrentDeck}
+                    currentDecl={currentDeck}
+                    currentUser={currentUser}
+                    setShowDeckForm={this.setShowDeckForm} showDeckForm={showDeckForm}
+                    setEditView={this.setEditView} showEditView={showEditView}
+                    setName={this.setName} name={name}
+                    setDescription={this.setDescription} description={description}
+                    setCreatedBy={this.setCreatedBy} createdBy={createdBy}
+                    setVisibility={this.setVisibility} visibility={visibility}
+                    doUpdateDeck={deck => this.doUpdateDeck(deck)}
+
+                  />}
             </View>
           </View>
 
@@ -125,6 +184,10 @@ const styles = StyleSheet.create({
   base: {
     backgroundColor: 'cornsilk',
     flex: 7,
+  },
+  editBase: {
+    backgroundColor: 'rgb(242, 220, 235)', 
+    flex:7
   },
   header: {
     backgroundColor: 'rgb(40, 200, 40)',

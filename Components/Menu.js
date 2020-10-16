@@ -1,6 +1,6 @@
 import React from 'react';
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
-import DeckList from './DeckList';
+import { StyleSheet, Text, TouchableOpacity } from 'react-native';
+
 
 const LoggedInMenu = (props) => {
 

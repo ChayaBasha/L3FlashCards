@@ -27,6 +27,12 @@ const FlashCardNav = (props) => {
                 <FontAwesomeIcon style={styles.back} icon={faBackward} onPress={() => prevCard()} />
             </View>
             <View>
+                <Text style={styles.editControls}>Edit</Text>
+            </View>
+            <View>
+                <FontAwesomeIcon style={styles.editControls} icon={faPlus}/>
+            </View>
+            <View>
                 <FontAwesomeIcon style={styles.next} icon={faForward} onPress={() => nextCard()} />
             </View>
         </View>
@@ -65,6 +71,10 @@ const styles = StyleSheet.create({
         padding: 20,
         marginRight: 20,
 
+    },
+    
+    editControls: {
+        color: 'rgb(40, 200, 40)'
     }
 
 

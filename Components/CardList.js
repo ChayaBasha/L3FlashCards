@@ -33,13 +33,20 @@ export class CardList extends Component {
 
     render() {
 
-        const { currentDeck, showEditView } = this.props
-        console.log(showEditView);
+        const { doUpdateDeck, currentDeck, currentUser, showEditView, 
+            setName, setDescription, setCreatedBy, setVisibility, 
+            name, description, createdBy, visibility } = this.props
 
         if(showEditView){
             return(
                 <View>
-                    <EditDeckView></EditDeckView>
+                    <EditDeckView currentDeck={currentDeck}
+                    currentUser={currentUser}  
+                    setName={setName} name={name}
+                    setDescription={setDescription} description={description}
+                    setCreatedBy={setCreatedBy} createdBy={createdBy}
+                    setVisibility={setVisibility} visibility={visibility}
+                    doUpdateDeck={doUpdateDeck}></EditDeckView>
                 </View>
             )
             
