@@ -59,8 +59,6 @@ export default class DeckList extends Component {
             <ScrollView style={{ marginBottom: 100 }}>
                 <View style={styles.container}>
 
-
-
                     <Table>
                         <Row data={state.tableHead} flexArr={[1, 2, 3, 2, 1]} style={styles.row} textStyle={styles.text} />
                         {

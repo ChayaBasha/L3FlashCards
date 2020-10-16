@@ -19,21 +19,21 @@ const DeckNav = (props) => {
 }
 
 const FlashCardNav = (props) => {
-    const { nextCard, prevCard } = props
+    const { currentDeck, nextCard, prevCard, showCardForm } = props
 
     return (
         <View style={styles.navBar}>
             <View>
-                <FontAwesomeIcon style={styles.back} icon={faBackward} onPress={() => prevCard()} />
+                {(currentDeck.cards.length==0) ? (<Text></Text>): <FontAwesomeIcon style={styles.back} icon={faBackward} onPress={() => prevCard()} />}
             </View>
             <View>
-                <Text style={styles.editControls}>Edit</Text>
+                <Text style={styles.editControls} >Edit</Text>
             </View>
             <View>
-                <FontAwesomeIcon style={styles.editControls} icon={faPlus}/>
+                <FontAwesomeIcon style={styles.editControls} icon={faPlus} onPress={() => showCardForm()}/>
             </View>
             <View>
-                <FontAwesomeIcon style={styles.next} icon={faForward} onPress={() => nextCard()} />
+            {(currentDeck.cards.length==0) ? (<Text></Text>): <FontAwesomeIcon style={styles.next} icon={faForward} onPress={() => nextCard()} />}
             </View>
         </View>
     )

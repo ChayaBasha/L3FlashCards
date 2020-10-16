@@ -148,6 +148,8 @@ class App extends Component {
                     setCreatedBy={this.setCreatedBy} createdBy={createdBy}
                     setVisibility={this.setVisibility} visibility={visibility}
                     doUpdateDeck={deck => this.doUpdateDeck(deck)}
+                    loadDecks={this.loadDecks}
+                    deckLength={currentDeck.length}
                   />) :
                   <DeckList
                     loadDecks={this.loadDecks} decks={decks}

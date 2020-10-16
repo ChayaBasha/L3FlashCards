@@ -13,11 +13,13 @@ L3FlashCards is an application that allows a user to view and create flashcard d
 9. Add Deck works 
 10. Edit Deck Works
 11. Delte Deck works
+12. Can add cards to a deck (both sides)
 
 ## To Do
 1. Create register form and button
 2. Create menues to edit and delete flashcards 
 3. Need to add encryption of passwords 
+4. There was a bug with a wrong login (won't login, but changes the login button to logout)
 
 
 
@@ -33,3 +35,5 @@ L3FlashCards is an application that allows a user to view and create flashcard d
 4. Edit mode changes background color 
 5. Edit mode shows delete funciton
 6. added delete function for decks
+7. Fixed Nav bar for flashcards to only show forward/back when there are cards
+8. Added the ability to add cards
