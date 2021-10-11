@@ -1,0 +1,597 @@
+[{
+  "_id": {
+    "$oid": "5f5ea5aa9258f322562ab82e"
+  },
+  "name": "US Presidents",
+  "description": "One Card per President including name, president number and term dates",
+  "cards": [
+    {
+      "frontCard": [
+        "First President",
+        "1789-1797"
+      ],
+      "backCard": [
+        "George Washington"
+      ],
+      "cardOrder": 1
+    },
+    {
+      "frontCard": [
+        "Second President",
+        "1797-1801"
+      ],
+      "backCard": [
+        "John Adams"
+      ],
+      "cardOrder": 2
+    },
+    {
+      "frontCard": [
+        "Third President",
+        "1801-1809"
+      ],
+      "backCard": [
+        "Thomas Jefferson"
+      ],
+      "cardOrder": 3
+    },
+    {
+      "frontCard": [
+        "Fourth President",
+        "1809-1817"
+      ],
+      "backCard": [
+        "James Madison"
+      ],
+      "cardOrder": 4
+    },
+    {
+      "frontCard": [
+        "Fifth President",
+        "1817-1825"
+      ],
+      "backCard": [
+        "James Monroe"
+      ],
+      "cardOrder": 5
+    },
+    {
+      "frontCard": [
+        "Sixth President",
+        "1825-1829"
+      ],
+      "backCard": [
+        "John Quincy Adams"
+      ],
+      "cardOrder": 6
+    },
+    {
+      "frontCard": [
+        "Seventh President",
+        "1829-1837"
+      ],
+      "backCard": [
+        "Andrew Jackson"
+      ],
+      "cardOrder": 7
+    },
+    {
+      "frontCard": [
+        "Eight President",
+        "1837-1841"
+      ],
+      "backCard": [
+        "Martin Van Buren"
+      ],
+      "cardOrder": 8
+    },
+    {
+      "frontCard": [
+        "Ninth President",
+        "1841-1841"
+      ],
+      "backCard": [
+        "William Henry Harrison"
+      ],
+      "cardOrder": 9
+    },
+    {
+      "frontCard": [
+        "Tenth President",
+        "1841-1845"
+      ],
+      "backCard": [
+        "John Tyler"
+      ],
+      "cardOrder": 10
+    },
+    {
+      "frontCard": [
+        "Eleventh President",
+        "1845-1849"
+      ],
+      "backCard": [
+        "James K Polk"
+      ],
+      "cardOrder": 11
+    },
+    {
+      "frontCard": [
+        "Twelth President",
+        "1849-1850"
+      ],
+      "backCard": [
+        "Zachary Taylor"
+      ],
+      "cardOrder": 12
+    },
+    {
+      "frontCard": [
+        "Thirteenth President",
+        "1850-1853"
+      ],
+      "backCard": [
+        "Millard Filmore"
+      ],
+      "cardOrder": 13
+    },
+    {
+      "frontCard": [
+        "Fourteenth President",
+        "1853-1857"
+      ],
+      "backCard": [
+        "Franklin Pierce"
+      ],
+      "cardOrder": 14
+    },
+    {
+      "frontCard": [
+        "Fifteenth President",
+        "1857-1861"
+      ],
+      "backCard": [
+        "James Bunchanan"
+      ],
+      "cardOrder": 15
+    },
+    {
+      "frontCard": [
+        "Sixteenth President",
+        "1861-1865"
+      ],
+      "backCard": [
+        "Abraham Lincoln"
+      ],
+      "cardOrder": 16
+    },
+    {
+      "frontCard": [
+        "Seventeeth President",
+        "1865-1869"
+      ],
+      "backCard": [
+        "Andrew Johnson"
+      ],
+      "cardOrder": 17
+    },
+    {
+      "frontCard": [
+        "Eighteenth President",
+        "1869-1877"
+      ],
+      "backCard": [
+        "Ulysses S. Grant"
+      ],
+      "cardOrder": 18
+    },
+    {
+      "frontCard": [
+        "Nineteenth President",
+        "1877-1881"
+      ],
+      "backCard": [
+        "Rutherford B. Hayes"
+      ],
+      "cardOrder": 19
+    },
+    {
+      "frontCard": [
+        "Twentieth President",
+        "1881-1881"
+      ],
+      "backCard": [
+        "James A. Garfield"
+      ],
+      "cardOrder": 20
+    },
+    {
+      "frontCard": [
+        "Twenty-First President",
+        "1881-1885"
+      ],
+      "backCard": [
+        "Chester A. Arthur"
+      ],
+      "cardOrder": 21
+    },
+    {
+      "frontCard": [
+        "Twenty-Second President",
+        "1885-1889"
+      ],
+      "backCard": [
+        "Grover Cleveland"
+      ],
+      "cardOrder": 22
+    },
+    {
+      "frontCard": [
+        "Twenty-Third President",
+        "1889-1893"
+      ],
+      "backCard": [
+        "Benjamin Harrison"
+      ],
+      "cardOrder": 23
+    },
+    {
+      "frontCard": [
+        "Twenty-Fourth President",
+        "1893-1897"
+      ],
+      "backCard": [
+        "Grover Cleveland"
+      ],
+      "cardOrder": 24
+    },
+    {
+      "frontCard": [
+        "Twenty-Fifth President",
+        "1897-1901"
+      ],
+      "backCard": [
+        "William McKinley"
+      ],
+      "cardOrder": 25
+    },
+    {
+      "frontCard": [
+        "Twenty-Sixth President",
+        "1901-1909"
+      ],
+      "backCard": [
+        "Theodore Roosevelt"
+      ],
+      "cardOrder": 26
+    },
+    {
+      "frontCard": [
+        "Twenty-Seventh President",
+        "1909-1913"
+      ],
+      "backCard": [
+        "William Howard Taft"
+      ],
+      "cardOrder": 27
+    },
+    {
+      "frontCard": [
+        "Twenty-Eigth President",
+        "1913-1921"
+      ],
+      "backCard": [
+        "Wodrow Wilson"
+      ],
+      "cardOrder": 28
+    },
+    {
+      "frontCard": [
+        "Twenty-Nineth President",
+        "1921-1923"
+      ],
+      "backCard": [
+        "Warren G. Harding"
+      ],
+      "cardOrder": 29
+    },
+    {
+      "frontCard": [
+        "Thirtieth President",
+        "1923-1929"
+      ],
+      "backCard": [
+        "Calvin Coolidge"
+      ],
+      "cardOrder": 30
+    },
+    {
+      "frontCard": [
+        "Thirty-First President",
+        "1929-1933"
+      ],
+      "backCard": [
+        "Herbert Hoover"
+      ],
+      "cardOrder": 31
+    },
+    {
+      "frontCard": [
+        "Thirty-Second President",
+        "1933-1945"
+      ],
+      "backCard": [
+        "Franklin D. Roosevelt"
+      ],
+      "cardOrder": 32
+    },
+    {
+      "frontCard": [
+        "Thirty-Third President",
+        "1945-1953"
+      ],
+      "backCard": [
+        "Harry S. Truman"
+      ],
+      "cardOrder": 33
+    },
+    {
+      "frontCard": [
+        "Thirty-Fourth President",
+        "1953-1961"
+      ],
+      "backCard": [
+        "Dwight D. Eisenhower"
+      ],
+      "cardOrder": 34
+    },
+    {
+      "frontCard": [
+        "Thirty-Fifth President",
+        "1961-1963"
+      ],
+      "backCard": [
+        "John F. Kennedy"
+      ],
+      "cardOrder": 35
+    },
+    {
+      "frontCard": [
+        "Thirty-Sixth President",
+        "1963-1969"
+      ],
+      "backCard": [
+        "Lyndon B. Johnson"
+      ],
+      "cardOrder": 36
+    },
+    {
+      "frontCard": [
+        "Thirty-Seventh President",
+        "1969-1974"
+      ],
+      "backCard": [
+        "Richard Nixon"
+      ],
+      "cardOrder": 37
+    },
+    {
+      "frontCard": [
+        "Thirty-Eigth President",
+        "1974-1977"
+      ],
+      "backCard": [
+        "Gerald Ford"
+      ],
+      "cardOrder": 38
+    },
+    {
+      "frontCard": [
+        "Thirty-Nineth President",
+        "1977-1981"
+      ],
+      "backCard": [
+        "Jimmy Carter"
+      ],
+      "cardOrder": 39
+    },
+    {
+      "frontCard": [
+        "Fortieth President",
+        "1981-1989"
+      ],
+      "backCard": [
+        "Ronald Reagan"
+      ],
+      "cardOrder": 40
+    },
+    {
+      "frontCard": [
+        "Forty-First President",
+        "1989-1993"
+      ],
+      "backCard": [
+        "George H.W. Bush"
+      ],
+      "cardOrder": 41
+    },
+    {
+      "frontCard": [
+        "Forty-Second President",
+        "1993-2001"
+      ],
+      "backCard": [
+        "Bill Clinton"
+      ],
+      "cardOrder": 42
+    },
+    {
+      "frontCard": [
+        "Forty-Third President",
+        "2001-2009"
+      ],
+      "backCard": [
+        "George W. Bush"
+      ],
+      "cardOrder": 43
+    },
+    {
+      "frontCard": [
+        "Forty-Fourth President",
+        "2009-2017"
+      ],
+      "backCard": [
+        "Barak Obama"
+      ],
+      "cardOrder": 44
+    },
+    {
+      "frontCard": [
+        "Forty-Fifth President",
+        "2017-2020"
+      ],
+      "backCard": [
+        "Donald Trump"
+      ],
+      "cardOrder": 45
+    }
+  ],
+  "visibility": true,
+  "_class": "com.mycompany.L3FlashCards_API.FCDeck"
+},{
+  "_id": {
+    "$oid": "5f6121cb82200d05a42e1548"
+  },
+  "name": "Elements",
+  "visibility": true,
+  "_class": "com.mycompany.L3FlashCards_API.FCDeck"
+},{
+  "_id": {
+    "$oid": "5f613a9f82200d05a42e1549"
+  },
+  "name": "Test Deck",
+  "description": "changes",
+  "visibility": true,
+  "_class": "com.mycompany.L3FlashCards_API.FCDeck"
+},{
+  "_id": {
+    "$oid": "5f7105f7b91aa81f741a10d8"
+  },
+  "name": "Flies",
+  "description": "edible flies",
+  "cards": [
+    {
+      "frontCard": [
+        "Fruit Fly"
+      ],
+      "backCard": [
+        "delcious",
+        "occurs near fresh fruit"
+      ],
+      "cardOrder": 1
+    },
+    {
+      "frontCard": [
+        "House Fly"
+      ],
+      "backCard": [
+        "my favorite",
+        "occurs near compost"
+      ],
+      "cardOrder": 3
+    }
+  ],
+  "visibility": false,
+  "_class": "com.mycompany.L3FlashCards_API.FCDeck"
+},{
+  "_id": {
+    "$oid": "5f83c7e86444371a0e325c8b"
+  },
+  "name": "Hops",
+  "description": "Different hops!",
+  "cards": [],
+  "visibility": true,
+  "_class": "com.mycompany.L3FlashCards_API.FCDeck"
+},{
+  "_id": {
+    "$oid": "5f83cbc46444371a0e325c8d"
+  },
+  "name": "Ponds",
+  "description": "Various water",
+  "cards": [],
+  "visibility": false,
+  "_class": "com.mycompany.L3FlashCards_API.FCDeck"
+},{
+  "_id": {
+    "$oid": "5f83d0ba6444371a0e325c8e"
+  },
+  "name": "croaks",
+  "description": "various sounds of the frogkin",
+  "cards": [
+    {
+      "frontCard": [
+        "Grrrrrrnesssss"
+      ],
+      "backCard": [
+        "Gowel"
+      ],
+      "cardOrder": 1
+    },
+    {
+      "frontCard": [
+        "Sad growl"
+      ],
+      "backCard": [
+        "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmhhhhh"
+      ],
+      "cardOrder": 2
+    },
+    {
+      "frontCard": [
+        "woop"
+      ],
+      "backCard": [
+        "WOOOOOOOOP"
+      ],
+      "cardOrder": 3
+    }
+  ],
+  "visibility": false,
+  "_class": "com.mycompany.L3FlashCards_API.FCDeck"
+},{
+  "_id": {
+    "$oid": "5f86435364e04528bf3454b7"
+  },
+  "name": "Grasses",
+  "description": "Different Treats",
+  "cards": [],
+  "visibility": true,
+  "_class": "com.mycompany.L3FlashCards_API.FCDeck"
+},{
+  "_id": {
+    "$oid": "5f8728b240720036f0ebe1ba"
+  },
+  "name": "Things to Chase",
+  "description": "list of favorite chase",
+  "cards": [],
+  "visibility": false,
+  "_class": "com.mycompany.L3FlashCards_API.FCDeck"
+},{
+  "_id": {
+    "$oid": "5f872a7440720036f0ebe1bb"
+  },
+  "name": "Test",
+  "description": "",
+  "cards": [],
+  "visibility": false,
+  "_class": "com.mycompany.L3FlashCards_API.FCDeck"
+},{
+  "_id": {
+    "$oid": "5f87351d40720036f0ebe1bd"
+  },
+  "name": "Toys",
+  "description": "Name of Toys",
+  "cards": [],
+  "visibility": false,
+  "_class": "com.mycompany.L3FlashCards_API.FCDeck"
+}]
